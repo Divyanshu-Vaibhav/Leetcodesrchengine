@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <span class="navbar-brand mb-0 h1">LEETCODE SEARCH ENGINE</span>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="form">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          <div class="form-group">
+            {{ form.search.label }}
+            {{ form.search(class="form-control") }}
+          </div>
+          {{ form.submit(class="btn btn-primary") }}
+        </form>
+      </div>
+
+      <div class="mt-4">
+        {% for result in results %}
+        <a href="{{ result['Question Link'] }}" class="d-block">{{ result['Question Link'] }}</a>
+        <p>Score: {{ result['Score'] }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+      <div class="container">
+        <h5>Introduction</h5>
+        <p>Hi,I am Divyanshu Vaibhav,a 3rd yr UG student of Indian Institute of Technology,Kharagpur.</p>
+        <h5>Project Details</h5>
+        <p>I have made this project which allows us to search on all the questions available on leetcode using TF-IDF algo which gives us the most relevant result</p>
+      </div>
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
